@@ -35,33 +35,124 @@
         };
     };
 
+    macros {
+        TA_ART: TA_ART {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(A) &kp LS(R) &kp LS(T) &kp MINUS &kp LS(T) &kp LS(A) &kp SPACE>;
+            label = "TA_ART";
+        };
+
+        NO_TA_SR: NO_TA_SR {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N) &kp LS(O) &kp SPACE &kp LS(T) &kp LS(A) &kp SPACE &kp LS(S) &kp LS(R)>;
+            label = "NO_TA_SR";
+        };
+
+        other: other {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LS(O) &kp T &kp H>,
+                <&macro_wait_time 100>,
+                <&kp TAB>;
+
+            label = "OTHER";
+        };
+
+        charge: charge {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(P) &kp LS(L) &kp LS(E) &kp LS(A) &kp LS(S) &kp LS(E) &kp SPACE &kp LS(B) &kp LS(I) &kp LS(L) &kp LS(L) &kp SPACE &kp LS(T) &kp LS(H) &kp LS(E) &kp SPACE &kp LS(C) &kp LS(O) &kp LS(R) &kp LS(R) &kp LS(E) &kp LS(C) &kp LS(T) &kp SPACE &kp LS(A) &kp LS(M) &kp LS(O) &kp LS(U) &kp LS(N) &kp LS(T) &kp SPACE &kp LS(F) &kp LS(O) &kp LS(R) &kp SPACE &kp LS(M) &kp LS(Y) &kp SPACE &kp LS(T) &kp LS(I) &kp LS(M) &kp LS(E)>;
+            label = "CHARGE";
+        };
+
+        no_charge: no_charge {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(P) &kp LS(L) &kp LS(E) &kp LS(A) &kp LS(S) &kp LS(E) &kp SPACE &kp LS(D) &kp LS(O) &kp SPACE &kp LS(N) &kp LS(O) &kp LS(T) &kp SPACE &kp LS(B) &kp LS(I) &kp LS(L) &kp LS(L) &kp SPACE &kp LS(F) &kp LS(O) &kp LS(R) &kp SPACE &kp LS(M) &kp LS(Y) &kp SPACE &kp LS(T) &kp LS(I) &kp LS(M) &kp LS(E) &kp COMMA &kp SPACE &kp LS(T) &kp LS(E) &kp LS(C) &kp LS(H) &kp SPACE &kp LS(N) &kp LS(E) &kp LS(E) &kp LS(D) &kp LS(E) &kp LS(D) &kp SPACE &kp LS(O) &kp LS(N) &kp SPACE &kp LS(S) &kp LS(I) &kp LS(T) &kp LS(E)>;
+            label = "NO_CHARGE";
+        };
+
+        invoice: invoice {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(T) &kp E &kp C &kp H &kp SPACE &kp LS(A) &kp D &kp V &kp I &kp S &kp O &kp R &kp SPACE &kp LS(C) &kp A &kp L &kp L &kp SPACE &kp MINUS &kp SPACE &kp MINUS &kp SPACE &kp MINUS &kp SPACE &kp LS(P) &kp LS(O) &kp LS(C) &kp SPACE>;
+            label = "INVOICE";
+        };
+
+        script: script {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp C &kp R &kp E &kp A &kp T &kp E &kp UNDER &kp C &kp A &kp L &kp L &kp UNDER &kp L &kp O &kp G &kp DOT &kp C &kp M &kp D>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>;
+
+            label = "SCRIPT";
+        };
+
+        done: done {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp STAR &kp STAR &kp LS(D) &kp LS(O) &kp LS(N) &kp LS(E) &kp STAR &kp STAR>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>;
+
+            label = "DONE";
+        };
+
+        mute: mute {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp LALT &kp M>;
+            label = "MUTE";
+        };
+
+        screenl: screenl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI &kp LCTRL &kp LEFT>;
+            label = "SCREENL";
+        };
+
+        screenr: screenr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RGUI &kp RCTRL &kp RIGHT>;
+            label = "SCREENR";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         base_Layer {
             bindings = <
 &kp Q             &kp W             &kp E          &kp R               &kp T        &kp Y      &kp U                &kp I          &kp O              &kp P
-&hrml LEFT_WIN A  &hrml LEFT_ALT S  &hrml LCTRL D  &hrml LEFT_SHIFT F  &kp G        &kp H      &hrmr RIGHT_SHIFT J  &hrmr RCTRL K  &hrmr RIGHT_ALT L  &hrmr RIGHT_WIN SQT
+&hrml LEFT_WIN A  &hrml LEFT_ALT S  &hrml LCTRL D  &hrml LEFT_SHIFT F  &lt 2 G      &kp H      &hrmr RIGHT_SHIFT J  &hrmr RCTRL K  &hrmr RIGHT_ALT L  &hrmr RIGHT_WIN SQT
 &kp Z             &kp X             &kp C          &kp V               &kp B        &kp N      &kp M                &kp COMMA      &kp DOT            &kp FSLH
-                                                   &kp TAB             &kp ENTER    &kp SPACE  &kp BACKSPACE
+                                                   &lt 1 TAB           &kp ENTER    &kp SPACE  &kp BACKSPACE
             >;
         };
 
         layer_1 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans    &trans  &trans
+&kp ESC       &other   &no_charge  &charge  &TA_ART      &done           &kp HOME  &kp END       &kp GRAVE  &kp PG_UP
+&kp CAPSLOCK  &trans   &trans      &trans   &NO_TA_SR    &kp LEFT_ARROW  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &kp PG_DN
+&trans        &script  &invoice    &trans   &trans       &trans          &mute     &screenl      &screenr   &kp DEL
+                                   &trans   &trans       &trans          &trans
             >;
         };
 
         layer_2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &kp MINUS  &kp N7        &kp N8  &kp N9  &kp LBKT
+&trans  &trans  &trans  &trans  &trans    &kp EQUAL  &kp N4        &kp N5  &kp N6  &kp RBKT
+&trans  &trans  &trans  &trans  &trans    &kp N0     &kp NUMBER_1  &kp N2  &kp N3  &kp BSLH
+                        &trans  &trans    &trans     &trans
             >;
         };
 
